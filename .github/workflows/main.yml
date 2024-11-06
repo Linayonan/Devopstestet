@@ -12,6 +12,27 @@ jobs:
       
     - name: skriv-ut
       run: echo "hello world"
-    
+
+  trigger: 
+    runs-on : ubuntu-latest
+    env:
+        GREETINGg: "Hello"
+        NAME: "Lina"
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        
+      - name: Display Greeting
+        run: |
+          echo "${{ env.GREETING }}, ${{ env.NAME }}!"
+          echo "Workflow ID: ${{ github.workflow }}"
+          echo "Run Number: ${{ github.run_number }}"
+          echo "Repository: ${{ github.repository }}"
+          
+      - name: Show Environment Variables
+        run: |
+          echo "Custom Greeting: ${{ env.GREETING }} ${{ env.NAME }}"
+          echo "Current branch: ${{ github.ref_name }}"
+          echo "Triggered by: ${{ github.actor }}"
   
     
