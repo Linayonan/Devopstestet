@@ -1,0 +1,17 @@
+name: hello world
+on:
+  push:
+    branches:
+    - main
+jobs:
+  skriv-ut:
+    runs-on: ubuntu-latest
+    steps:
+    - name: checkout code 
+      uses: actions/checkout@v2
+      
+    - name: skriv-ut
+      run: echo "hello world"
+    
+  
+    
